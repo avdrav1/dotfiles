@@ -1,5 +1,9 @@
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+
+# Oh My Zsh plugins
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete)
+
 export EDITOR="nvim"
 export SUDO_EDITOR="$EDITOR"
 export PGHOST="/var/run/postgresql"
