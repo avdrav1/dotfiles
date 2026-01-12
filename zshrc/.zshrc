@@ -1,8 +1,15 @@
-eval "$(starship init zsh)"
+# Initialize zoxide first
 eval "$(zoxide init zsh)"
 
-# Oh My Zsh plugins
+# Oh My Zsh configuration
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_CUSTOM="${ZSH_CUSTOM:-$ZSH/custom}"
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete)
+
+# Load Oh My Zsh (this will use the plugins array above)
+if [ -f "$ZSH/oh-my-zsh.sh" ]; then
+  source "$ZSH/oh-my-zsh.sh"
+fi
 
 export EDITOR="nvim"
 export SUDO_EDITOR="$EDITOR"
@@ -44,9 +51,13 @@ new_tmux () {
     fi
   fi
 
-  if [-s "$session_name" ]; then
+  if [ -s "$session_name" ]; then
     notify-send "$notification"
   fi
 }
 
 alias tm=new_tmux
+
+# Starship prompt (load last so it wins over other prompt customizations)
+export STARSHIP_CONFIG="$HOME/.config/starship.toml"
+eval "$(starship init zsh)"
