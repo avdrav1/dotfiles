@@ -58,6 +58,29 @@ new_tmux () {
 
 alias tm=new_tmux
 
+# Helper to download music from YouTube/YouTube Music with metadata, art, and subs
+yt-music() {
+  if [ -z "$1" ]; then
+    echo "Usage: yt-music <youtube-or-youtube-music-url>" >&2
+    return 1
+  fi
+
+  yt-dlp \
+    --yes-playlist \
+    --extract-audio \
+    --audio-format best \
+    --add-metadata \
+    --embed-thumbnail \
+    --embed-chapters \
+    --embed-info-json \
+    --output "$HOME/Music/%(album_artist,artist,channel)s/%(album,playlist,title)s/%(playlist_index,track_number,1)02d - %(title)s.%(ext)s" \
+    --write-subs \
+    --write-auto-subs \
+    --sub-lang en \
+    --sub-format srt \
+    "$1"
+}
+
 # Starship prompt (load last so it wins over other prompt customizations)
 export STARSHIP_CONFIG="$HOME/.config/starship.toml"
 eval "$(starship init zsh)"
