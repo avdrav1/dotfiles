@@ -7,6 +7,7 @@
   "margin": "0",
   "modules-left": [
     "clock",
+    "mpris",
     "hyprland/window"
   ],
   "modules-center": [
@@ -17,6 +18,7 @@
     "custom/screenrecording-indicator"
   ],
   "modules-right": [
+    "custom/weather",
     "group/tray-expander",
     "backlight",
     "custom/updatespacman",
@@ -252,5 +254,23 @@
   "tray": {
     "icon-size": 12,
     "spacing": 12
+  },
+  "mpris": {
+    "format": "{player_icon} {artist} - {title}",
+    "format-paused": "{player_icon} {status_icon} {artist} - {title}",
+    "player-icons": {
+      "spotify": " ",
+      "default": "🎵"
+    },
+    "status-icons": {
+      "paused": "⏸"
+    },
+    "max-length": 40
+  },
+  "custom/weather": {
+    "format": "{}",
+    "exec": "curl -s 'wttr.in/?format=%c+%t' | tr -d '+'",
+    "interval": 600,
+    "tooltip-format": "Weather"
   }
 }
