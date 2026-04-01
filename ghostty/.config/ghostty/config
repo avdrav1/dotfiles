@@ -1,3 +1,6 @@
+# Shell
+command = /usr/bin/zsh
+
 # Dynamic theme colors
 config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
 
