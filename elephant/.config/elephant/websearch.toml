@@ -1,0 +1,4 @@
+[[entries]]
+default = true
+name = "Perplexity"
+url = "https://www.perplexity.ai/search?q=%TERM%"
