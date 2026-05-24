@@ -84,3 +84,6 @@ yt-music() {
 # Starship prompt (load last so it wins over other prompt customizations)
 export STARSHIP_CONFIG="$HOME/.config/starship.toml"
 eval "$(starship init zsh)"
+
+# Music helper functions
+[ -f "$HOME/.config/zsh/music-functions.zsh" ] && source "$HOME/.config/zsh/music-functions.zsh"
