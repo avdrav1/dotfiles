@@ -87,3 +87,7 @@ eval "$(starship init zsh)"
 
 # Music helper functions
 [ -f "$HOME/.config/zsh/music-functions.zsh" ] && source "$HOME/.config/zsh/music-functions.zsh"
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
