@@ -22,6 +22,7 @@
     "custom/updatespacman",
     "bluetooth",
     "network",
+    "custom/media",
     "pulseaudio",
     "cpu",
     "memory",
@@ -212,6 +213,15 @@
     "format-connected": "",
     "tooltip-format": "Devices connected: {num_connections}",
     "on-click": "omarchy-launch-bluetooth"
+  },
+  "custom/media": {
+    "exec": "~/.config/waybar/scripts/mediaplayer.sh",
+    "interval": 2,
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl stop",
+    "on-scroll-up": "playerctl previous",
+    "on-scroll-down": "playerctl next",
+    "tooltip": false
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",
