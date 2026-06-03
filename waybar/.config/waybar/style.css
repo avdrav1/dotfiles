@@ -35,10 +35,18 @@ window#waybar {
   box-shadow: 1px 1px 3px 2px alpha(#000000, 0.8);
 }
 
-.modules-left {
+.modules-left,
+.modules-right {
   background: transparent;
   border: none;
   box-shadow: none;
+}
+
+#system {
+  border: 2px solid @border-accent;
+  background-color: @background;
+  box-shadow: 1px 1px 3px 2px alpha(#000000, 0.8);
+  padding: 1px;
 }
 
 #clock {
@@ -53,6 +61,11 @@ window#waybar {
   background: transparent;
   box-shadow: none;
   color: #d7c483;
+}
+
+#custom-media {
+  color: #d7c483;
+  margin: 0 8px;
 }
 
 /* ========================================================================== */
@@ -81,7 +94,6 @@ window#waybar {
 #battery,
 #network,
 #bluetooth,
-#custom-media,
 #pulseaudio,
 #custom-omarchy,
 #backlight,
@@ -169,7 +181,6 @@ tooltip label {
 #battery,
 #network,
 #bluetooth,
-#custom-media,
 #pulseaudio,
 #custom-omarchy,
 #backlight,

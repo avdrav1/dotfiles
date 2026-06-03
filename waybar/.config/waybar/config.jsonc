@@ -17,17 +17,23 @@
     "custom/screenrecording-indicator"
   ],
   "modules-right": [
-    "group/tray-expander",
-    "backlight",
-    "custom/updatespacman",
-    "bluetooth",
-    "network",
     "custom/media",
-    "pulseaudio",
-    "cpu",
-    "memory",
-    "battery"
+    "group/system"
   ],
+  "group/system": {
+    "orientation": "inherit",
+    "modules": [
+      "group/tray-expander",
+      "backlight",
+      "custom/updatespacman",
+      "bluetooth",
+      "network",
+      "pulseaudio",
+      "cpu",
+      "memory",
+      "battery"
+    ]
+  },
   "hyprland/workspaces": {
     "on-click": "activate",
     "format": "{id}",
