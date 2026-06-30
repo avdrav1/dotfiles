@@ -1,8 +1,7 @@
-# msmtp — SMTP sending for aerc. Secrets via `pass`; select account with -a <address>.
-# Gmail uses an App Password (the same one stored for mbsync).
+# msmtp — SMTP sending via Gmail using OAuth2 (xoauth2 is built into msmtp).
+# Access tokens come from oama; select an account with -a <address>.
 
 defaults
-auth           on
 tls            on
 tls_starttls   on
 logfile        ~/.local/share/msmtp.log
@@ -12,27 +11,31 @@ host           smtp.gmail.com
 port           587
 from           av@lab828.com
 user           av@lab828.com
-passwordeval   "pass show email/av@lab828.com"
+auth           xoauth2
+passwordeval   "oama access av@lab828.com"
 
 account        av@dravid.com
 host           smtp.gmail.com
 port           587
 from           av@dravid.com
 user           av@dravid.com
-passwordeval   "pass show email/av@dravid.com"
+auth           xoauth2
+passwordeval   "oama access av@dravid.com"
 
 account        ad@zyx7.cc
 host           smtp.gmail.com
 port           587
 from           ad@zyx7.cc
 user           ad@zyx7.cc
-passwordeval   "pass show email/ad@zyx7.cc"
+auth           xoauth2
+passwordeval   "oama access ad@zyx7.cc"
 
 account        avniel@umich.edu
 host           smtp.gmail.com
 port           587
 from           avniel@umich.edu
 user           avniel@umich.edu
-passwordeval   "pass show email/avniel@umich.edu"
+auth           xoauth2
+passwordeval   "oama access avniel@umich.edu"
 
 account default : av@lab828.com

@@ -1,22 +1,22 @@
-# isync / mbsync — syncs Gmail IMAP <-> local Maildir at ~/.local/share/mail.
-# Secrets are NEVER stored here: passwords come from `pass` at runtime.
+# isync / mbsync — Gmail IMAP <-> local Maildir, authenticating with OAuth2.
+# Tokens are managed by oama (https://github.com/pdobsan/oama): `oama access`
+# prints a fresh access token and refreshes in the background. Requires the
+# cyrus-sasl-xoauth2 plugin so isync can speak the XOAUTH2 SASL mechanism.
 #
-# Per-machine one-time setup for each account (id == the email address):
-#   pass insert email/<address>    # paste a Google App Password (not your login pw)
-# Then:  mbsync -a                 # syncs every channel
-#
-# App Password: myaccount.google.com -> Security -> 2-Step Verification ->
-# App passwords (requires 2FA). Some Workspace/edu orgs disable these; if so
-# that account needs OAuth2 instead — ask and I'll convert it.
+# Per-machine one-time setup (see install-aerc-mail.sh header):
+#   1. Create a Google Cloud OAuth client (Desktop app), enable Gmail API
+#   2. oama config.yaml: GPG encryption + client_id/client_secret
+#   3. oama authorize google <address>     # browser consent, once per account
+# Then:  mbsync -a
 
 # ───────────────────────────── av@lab828.com ─────────────────────────────
 IMAPAccount av@lab828.com
 Host imap.gmail.com
 Port 993
 User av@lab828.com
-PassCmd "pass show email/av@lab828.com"
+PassCmd "oama access av@lab828.com"
 TLSType IMAPS
-AuthMechs LOGIN
+AuthMechs XOAUTH2
 
 IMAPStore av@lab828.com-remote
 Account av@lab828.com
@@ -29,7 +29,7 @@ Inbox ~/.local/share/mail/av@lab828.com/INBOX
 Channel av@lab828.com
 Far :av@lab828.com-remote:
 Near :av@lab828.com-local:
-Patterns "INBOX" "[Gmail]/Sent Mail" "[Gmail]/Drafts" "[Gmail]/Trash" "[Gmail]/All Mail"
+Patterns "INBOX" "[Gmail]/Sent Mail" "[Gmail]/Drafts" "[Gmail]/Trash"
 Create Both
 Expunge Both
 SyncState *
@@ -39,9 +39,9 @@ IMAPAccount av@dravid.com
 Host imap.gmail.com
 Port 993
 User av@dravid.com
-PassCmd "pass show email/av@dravid.com"
+PassCmd "oama access av@dravid.com"
 TLSType IMAPS
-AuthMechs LOGIN
+AuthMechs XOAUTH2
 
 IMAPStore av@dravid.com-remote
 Account av@dravid.com
@@ -54,7 +54,7 @@ Inbox ~/.local/share/mail/av@dravid.com/INBOX
 Channel av@dravid.com
 Far :av@dravid.com-remote:
 Near :av@dravid.com-local:
-Patterns "INBOX" "[Gmail]/Sent Mail" "[Gmail]/Drafts" "[Gmail]/Trash" "[Gmail]/All Mail"
+Patterns "INBOX" "[Gmail]/Sent Mail" "[Gmail]/Drafts" "[Gmail]/Trash"
 Create Both
 Expunge Both
 SyncState *
@@ -64,9 +64,9 @@ IMAPAccount ad@zyx7.cc
 Host imap.gmail.com
 Port 993
 User ad@zyx7.cc
-PassCmd "pass show email/ad@zyx7.cc"
+PassCmd "oama access ad@zyx7.cc"
 TLSType IMAPS
-AuthMechs LOGIN
+AuthMechs XOAUTH2
 
 IMAPStore ad@zyx7.cc-remote
 Account ad@zyx7.cc
@@ -79,7 +79,7 @@ Inbox ~/.local/share/mail/ad@zyx7.cc/INBOX
 Channel ad@zyx7.cc
 Far :ad@zyx7.cc-remote:
 Near :ad@zyx7.cc-local:
-Patterns "INBOX" "[Gmail]/Sent Mail" "[Gmail]/Drafts" "[Gmail]/Trash" "[Gmail]/All Mail"
+Patterns "INBOX" "[Gmail]/Sent Mail" "[Gmail]/Drafts" "[Gmail]/Trash"
 Create Both
 Expunge Both
 SyncState *
@@ -89,9 +89,9 @@ IMAPAccount avniel@umich.edu
 Host imap.gmail.com
 Port 993
 User avniel@umich.edu
-PassCmd "pass show email/avniel@umich.edu"
+PassCmd "oama access avniel@umich.edu"
 TLSType IMAPS
-AuthMechs LOGIN
+AuthMechs XOAUTH2
 
 IMAPStore avniel@umich.edu-remote
 Account avniel@umich.edu
@@ -104,7 +104,7 @@ Inbox ~/.local/share/mail/avniel@umich.edu/INBOX
 Channel avniel@umich.edu
 Far :avniel@umich.edu-remote:
 Near :avniel@umich.edu-local:
-Patterns "INBOX" "[Gmail]/Sent Mail" "[Gmail]/Drafts" "[Gmail]/Trash" "[Gmail]/All Mail"
+Patterns "INBOX" "[Gmail]/Sent Mail" "[Gmail]/Drafts" "[Gmail]/Trash"
 Create Both
 Expunge Both
 SyncState *
