@@ -1,0 +1,38 @@
+# msmtp — SMTP sending for aerc. Secrets via `pass`; select account with -a <address>.
+# Gmail uses an App Password (the same one stored for mbsync).
+
+defaults
+auth           on
+tls            on
+tls_starttls   on
+logfile        ~/.local/share/msmtp.log
+
+account        av@lab828.com
+host           smtp.gmail.com
+port           587
+from           av@lab828.com
+user           av@lab828.com
+passwordeval   "pass show email/av@lab828.com"
+
+account        av@dravid.com
+host           smtp.gmail.com
+port           587
+from           av@dravid.com
+user           av@dravid.com
+passwordeval   "pass show email/av@dravid.com"
+
+account        ad@zyx7.cc
+host           smtp.gmail.com
+port           587
+from           ad@zyx7.cc
+user           ad@zyx7.cc
+passwordeval   "pass show email/ad@zyx7.cc"
+
+account        avniel@umich.edu
+host           smtp.gmail.com
+port           587
+from           avniel@umich.edu
+user           avniel@umich.edu
+passwordeval   "pass show email/avniel@umich.edu"
+
+account default : av@lab828.com

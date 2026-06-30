@@ -1,0 +1,13 @@
+[Unit]
+Description=Sync all mail accounts into the local Maildir with mbsync (isync)
+Documentation=man:mbsync(1)
+
+[Service]
+Type=oneshot
+# Sync every channel defined in ~/.config/isync/mbsyncrc. Passwords are pulled
+# from `pass` via gpg-agent; a graphical pinentry will appear if the key is
+# locked. aerc watches the Maildir and refreshes on its own when this runs.
+ExecStart=/usr/bin/mbsync -a
+# A failed run (offline, locked key, missing pass entry) shouldn't be noisy;
+# the timer just tries again next interval.
+SuccessExitStatus=0 1

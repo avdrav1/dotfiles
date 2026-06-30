@@ -1,0 +1,110 @@
+# isync / mbsync — syncs Gmail IMAP <-> local Maildir at ~/.local/share/mail.
+# Secrets are NEVER stored here: passwords come from `pass` at runtime.
+#
+# Per-machine one-time setup for each account (id == the email address):
+#   pass insert email/<address>    # paste a Google App Password (not your login pw)
+# Then:  mbsync -a                 # syncs every channel
+#
+# App Password: myaccount.google.com -> Security -> 2-Step Verification ->
+# App passwords (requires 2FA). Some Workspace/edu orgs disable these; if so
+# that account needs OAuth2 instead — ask and I'll convert it.
+
+# ───────────────────────────── av@lab828.com ─────────────────────────────
+IMAPAccount av@lab828.com
+Host imap.gmail.com
+Port 993
+User av@lab828.com
+PassCmd "pass show email/av@lab828.com"
+TLSType IMAPS
+AuthMechs LOGIN
+
+IMAPStore av@lab828.com-remote
+Account av@lab828.com
+
+MaildirStore av@lab828.com-local
+Subfolders Verbatim
+Path ~/.local/share/mail/av@lab828.com/
+Inbox ~/.local/share/mail/av@lab828.com/INBOX
+
+Channel av@lab828.com
+Far :av@lab828.com-remote:
+Near :av@lab828.com-local:
+Patterns "INBOX" "[Gmail]/Sent Mail" "[Gmail]/Drafts" "[Gmail]/Trash" "[Gmail]/All Mail"
+Create Both
+Expunge Both
+SyncState *
+
+# ───────────────────────────── av@dravid.com ─────────────────────────────
+IMAPAccount av@dravid.com
+Host imap.gmail.com
+Port 993
+User av@dravid.com
+PassCmd "pass show email/av@dravid.com"
+TLSType IMAPS
+AuthMechs LOGIN
+
+IMAPStore av@dravid.com-remote
+Account av@dravid.com
+
+MaildirStore av@dravid.com-local
+Subfolders Verbatim
+Path ~/.local/share/mail/av@dravid.com/
+Inbox ~/.local/share/mail/av@dravid.com/INBOX
+
+Channel av@dravid.com
+Far :av@dravid.com-remote:
+Near :av@dravid.com-local:
+Patterns "INBOX" "[Gmail]/Sent Mail" "[Gmail]/Drafts" "[Gmail]/Trash" "[Gmail]/All Mail"
+Create Both
+Expunge Both
+SyncState *
+
+# ───────────────────────────── ad@zyx7.cc ─────────────────────────────
+IMAPAccount ad@zyx7.cc
+Host imap.gmail.com
+Port 993
+User ad@zyx7.cc
+PassCmd "pass show email/ad@zyx7.cc"
+TLSType IMAPS
+AuthMechs LOGIN
+
+IMAPStore ad@zyx7.cc-remote
+Account ad@zyx7.cc
+
+MaildirStore ad@zyx7.cc-local
+Subfolders Verbatim
+Path ~/.local/share/mail/ad@zyx7.cc/
+Inbox ~/.local/share/mail/ad@zyx7.cc/INBOX
+
+Channel ad@zyx7.cc
+Far :ad@zyx7.cc-remote:
+Near :ad@zyx7.cc-local:
+Patterns "INBOX" "[Gmail]/Sent Mail" "[Gmail]/Drafts" "[Gmail]/Trash" "[Gmail]/All Mail"
+Create Both
+Expunge Both
+SyncState *
+
+# ───────────────────────────── avniel@umich.edu ─────────────────────────────
+IMAPAccount avniel@umich.edu
+Host imap.gmail.com
+Port 993
+User avniel@umich.edu
+PassCmd "pass show email/avniel@umich.edu"
+TLSType IMAPS
+AuthMechs LOGIN
+
+IMAPStore avniel@umich.edu-remote
+Account avniel@umich.edu
+
+MaildirStore avniel@umich.edu-local
+Subfolders Verbatim
+Path ~/.local/share/mail/avniel@umich.edu/
+Inbox ~/.local/share/mail/avniel@umich.edu/INBOX
+
+Channel avniel@umich.edu
+Far :avniel@umich.edu-remote:
+Near :avniel@umich.edu-local:
+Patterns "INBOX" "[Gmail]/Sent Mail" "[Gmail]/Drafts" "[Gmail]/Trash" "[Gmail]/All Mail"
+Create Both
+Expunge Both
+SyncState *
