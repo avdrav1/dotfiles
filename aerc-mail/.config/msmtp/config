@@ -23,9 +23,4 @@ user           ad@zyx7.cc
 from           ad@zyx7.cc
 passwordeval   oama access ad@zyx7.cc
 
-account        avniel@umich.edu
-user           avniel@umich.edu
-from           avniel@umich.edu
-passwordeval   oama access avniel@umich.edu
-
 account default : av@lab828.com
