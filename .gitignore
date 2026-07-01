@@ -1,3 +1,4 @@
 # Syncthing-generated, never tracked
 .stfolder/
 .stversions/
+*.sync-conflict-*
