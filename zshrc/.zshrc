@@ -11,7 +11,8 @@ if [ -f "$ZSH/oh-my-zsh.sh" ]; then
   source "$ZSH/oh-my-zsh.sh"
 fi
 
-export EDITOR="nvim"
+export EDITOR="fresh"
+export VISUAL="$EDITOR"
 export SUDO_EDITOR="$EDITOR"
 export PGHOST="/var/run/postgresql"
 
