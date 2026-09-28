@@ -90,3 +90,6 @@ eval "$(starship init zsh)"
 [ -f "$HOME/.config/zsh/music-functions.zsh" ] && source "$HOME/.config/zsh/music-functions.zsh"
 
 export PATH=$HOME/.local/bin:$PATH
+
+# Concord Discord token (secret lives in ~/.config/concord/env, never in this repo)
+[ -f "$HOME/.config/concord/env" ] && source "$HOME/.config/concord/env"
