@@ -1,0 +1,22 @@
+{
+  "alerts": "favorites",
+  "displayMode": "full",
+  "hourCycle": 12,
+  "leagues": "basketball/nba,baseball/mlb,football/nfl",
+  "showScores": true,
+  "tab1": "news",
+  "tab1Url": "",
+  "tab2": "business",
+  "tab2Url": "",
+  "tab3": "technology",
+  "tab3Url": "",
+  "tab4": "science",
+  "tab4Url": "",
+  "tab5": "omarchy",
+  "tab5Url": "",
+  "teams": "San Francisco Giants,Athletics,Philadelphia Phillies,Pittsburgh Steelers,San Francisco 49ers,Golden State Warriors,New York Knicks",
+  "tickerSources": "tab1",
+  "tickerSpeed": 40,
+  "tickerTeams": "favorites",
+  "tickerWidth": 240
+}
