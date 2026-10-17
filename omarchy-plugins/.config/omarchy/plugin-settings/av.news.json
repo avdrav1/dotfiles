@@ -18,5 +18,6 @@
   "tickerSources": "tab1",
   "tickerSpeed": 40,
   "tickerTeams": "favorites",
-  "tickerWidth": 240
+  "tickerWidth": 240,
+  "tickerWidthPercent": 15
 }
