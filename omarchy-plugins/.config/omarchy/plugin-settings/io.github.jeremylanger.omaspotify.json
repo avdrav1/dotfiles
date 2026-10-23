@@ -1,0 +1,19 @@
+{
+  "audioQuality": "320 kbps",
+  "deviceName": "OmaSpotify",
+  "idleShutdownMinutes": 15,
+  "libraryFilter": "all",
+  "librarySort": "library",
+  "libraryView": "list",
+  "maxBarTextWidth": "240",
+  "normalizeVolume": "On",
+  "scrollBarText": "Off",
+  "scrollSpeed": "1",
+  "shortcutHints": "On",
+  "shortcutPlayer": "Omarchy Music app",
+  "showArtistName": "Off",
+  "showMiniPlayer": "On",
+  "showPausedTrack": "On",
+  "showTrackTitle": "On",
+  "volumeLevel": "Normal"
+}

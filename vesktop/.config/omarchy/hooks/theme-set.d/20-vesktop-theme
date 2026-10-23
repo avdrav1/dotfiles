@@ -1,0 +1,13 @@
+#!/bin/bash
+# Vesktop theme-set hook. Install with: omarchy hook install theme-set 20-vesktop-theme
+# Copies the theme's vencord.theme.css (shipped by the theme, or rendered from
+# ~/.config/omarchy/themed/vencord.theme.css.tpl) into Vesktop's themes folder.
+# Vencord watches that folder, so a running Vesktop restyles without a restart.
+set -u
+
+SRC="$HOME/.local/state/omarchy/current/theme/vencord.theme.css"
+DEST_DIR="$HOME/.config/vesktop/themes"
+
+if [[ -f $SRC && -d $DEST_DIR ]]; then
+  cp -f "$SRC" "$DEST_DIR/omarchy.theme.css"
+fi

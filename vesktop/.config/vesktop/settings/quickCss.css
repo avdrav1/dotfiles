@@ -1,0 +1,67 @@
+/* Vesktop QuickCSS -- hot-reloads on save. Colors live in the Omarchy theme
+   (themes/omarchy.theme.css); this file is layout and declutter only. */
+
+/* The whole UI uses the system monospace font (whatever `omarchy font set`
+   chose). Drop the first three lines to go back to Discord's own typeface
+   everywhere but code blocks. */
+:root {
+  --font-primary: monospace;
+  --font-display: monospace;
+  --font-headline: monospace;
+  --font-code: monospace;
+}
+
+/* Chat bar: gift button and the Apps launcher. */
+[class*="channelTextArea"] [class*="buttons"] > div:has(> [aria-label="Send a gift"]),
+.app-launcher-entrypoint {
+  display: none !important;
+}
+
+/* Title bar: Help button. */
+[class*="trailing_"] > a[href="https://support.discord.com"] {
+  display: none !important;
+}
+
+/* "Boost Goal" progress bar atop a server's channel list. */
+#channels div[class*="containerWithMargin"]:has([class*="progressContainer"]) {
+  display: none !important;
+}
+
+/* Nitro, Shop and Quests entries above the DM list. */
+[class*="privateChannels"] li:has(a[href="/store"]),
+[class*="privateChannels"] li:has(a[href="/shop"]),
+[class*="privateChannels"] li:has(a[href="/quest-home"]) {
+  display: none !important;
+}
+
+/* Server list: icons are greyscale and slightly dimmed so they sit with the
+   theme; the hovered and the selected server get their full colour back.
+   Delete this block to restore the original icons. */
+[data-list-item-id^="guildsnav___"] {
+  filter: grayscale(1) contrast(0.9) brightness(0.9);
+  transition: filter 0.15s ease;
+}
+[data-list-item-id^="guildsnav___"]:hover,
+[data-list-item-id^="guildsnav___"][aria-selected="true"],
+[class*="selected"] > [data-list-item-id^="guildsnav___"] {
+  filter: none;
+}
+
+/* Server list: every entry sits on the same solid tile, so logos with
+   transparent backgrounds, text-only servers and the Add/Discover buttons all
+   take the one rounded-square outline Discord masks them to. */
+[data-list-item-id^="guildsnav___"][class*="wrapper__"],
+[data-list-item-id^="guildsnav___"][class*="circleIconButton"],
+[data-list-item-id^="guildsnav___"] [class*="childWrapper"] {
+  background-color: var(--base02) !important;
+}
+
+/* Folders get the same tile, shrunk from 48px to the 40px of a server icon. */
+[class*="folderButtonInner"] {
+  transform: scale(0.834);
+}
+[class*="folderButton"] [class*="folderPreviewWrapper"],
+[class*="folderButton"] div[class*="folderIconWrapper"] {
+  background-color: var(--base02) !important;
+  border-radius: 14px !important;
+}
