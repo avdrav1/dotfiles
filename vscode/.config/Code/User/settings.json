@@ -1,5 +1,5 @@
-{
-    "workbench.colorTheme": "Noctokai",
+{ "workbench.colorTheme": "Omarchy",
+    
     "jupyter.askForKernelRestart": false,
     "claudeCode.preferredLocation": "panel"
 }
